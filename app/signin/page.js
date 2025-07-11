@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import GoogleLoginButton from '../google_login/GoogleLogin';
-import FacebookLoginButton from '../facebook_login/page';
+// import FacebookLoginButton from '../facebook_login/page';
 import axios from 'axios';
 
 export default function SignIn() {
@@ -179,7 +179,7 @@ export default function SignIn() {
                         </div>
                         <div className="space-y-3">
                             <GoogleLoginButton />
-                            <FacebookLoginButton />
+                            {/* <FacebookLoginButton /> */}
                         </div>
                         <p className="mt-6 text-center text-sm text-gray-600">
                             Don't have an account yet?{' '}
