@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import GoogleLoginButton from '../google_login/GoogleLogin';
+// import GoogleLoginButton from '../google_login/GoogleLogin';
 // import FacebookLoginButton from '../facebook_login/page';
 import axios from 'axios';
 
@@ -178,7 +178,7 @@ export default function SignIn() {
                             Or, log in with your social account
                         </div>
                         <div className="space-y-3">
-                            <GoogleLoginButton />
+                            {/* <GoogleLoginButton /> */}
                             {/* <FacebookLoginButton /> */}
                         </div>
                         <p className="mt-6 text-center text-sm text-gray-600">
