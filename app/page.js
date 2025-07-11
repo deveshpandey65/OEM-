@@ -30,7 +30,7 @@ const dummyFlashSales = [
     name: 'Ather 450X',
     price: 1500,
     salePrice: 999,
-    image: '/assets/img/bike.png',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerX1qQe7h62unpdkOY4o3vhtGSSVrt6vCYMX2GDzN8dmQhF7Z0JL3R-jlSgfxnqpACXU&usqp=CAU',
   },
   {
     id: '3',
@@ -44,7 +44,7 @@ const dummyFlashSales = [
     name: 'Vida V1 Pro',
     price: 2000,
     salePrice: 899,
-    image: '/assets/img/bike.png',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerX1qQe7h62unpdkOY4o3vhtGSSVrt6vCYMX2GDzN8dmQhF7Z0JL3R-jlSgfxnqpACXU&usqp=CAU',
   },
   {
     id: '2',
@@ -58,7 +58,7 @@ const dummyFlashSales = [
     name: 'Ola S1 Air',
     price: 1800,
     salePrice: 749,
-    image: '/assets/img/bike.png',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerX1qQe7h62unpdkOY4o3vhtGSSVrt6vCYMX2GDzN8dmQhF7Z0JL3R-jlSgfxnqpACXU&usqp=CAU',
   },
 ];
 
@@ -68,7 +68,19 @@ export default function Home() {
   const [isManuallyClosed, setIsManuallyClosed] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
   const router = useRouter();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  useEffect(() => {
+    if (!showModal) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === dummyFlashSales.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [showModal, dummyFlashSales.length]);
   const flashSaleEnd = new Date();
   flashSaleEnd.setHours(flashSaleEnd.getHours() + 1); 
 
@@ -126,8 +138,8 @@ export default function Home() {
 
       {/* Flash Sale Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-white rounded-xl shadow-lg p-6 max-w-4xl w-[90%] relative">
+        <div className=" fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="w-fit bg-white rounded-xl shadow-lg p-6 max-w-4xl w-[90%] relative">
             <button
               onClick={() => {
                 setShowModal(false);
@@ -137,27 +149,29 @@ export default function Home() {
             >
               &times;
             </button>
-            <h2 className="text-2xl font-bold text-center mb-1 text-orange-600">⚡ Flash Sale Deals</h2>
+            <h2 className="text-2xl font-bold text-center mb-1 text-orange-600">
+              ⚡ Flash Sale Deals
+            </h2>
             <p className="text-center text-sm mb-3 text-gray-600">
               Ends in <span className="font-semibold text-red-600">{formatTime(timeLeft)}</span>
             </p>
-            <div className="flex overflow-x-auto space-x-4 py-2 px-1">
-              {dummyFlashSales.map((item) => (
-                <div
-                  key={item.id + Math.random()}
-                  className="min-w-[200px] bg-orange-50 p-4 rounded-lg shadow-md flex-shrink-0"
-                >
+
+            {/* Slider */}
+            <div className="w-full flex justify-center items-center py-2 px-1">
+              {dummyFlashSales.length > 0 && (
+                <div className="w-[200px] bg-orange-50 p-4 rounded-lg shadow-md transition-all duration-500 ease-in-out">
                   <img
-                    src={item.image}
-                    alt={item.name}
+                    src={dummyFlashSales[currentIndex].image}
+                    alt={dummyFlashSales[currentIndex].name}
                     className="w-full h-40 object-contain mb-2 rounded"
                   />
-                  <h3 className="text-lg font-semibold">{item.name}</h3>
-                  <p className="text-gray-500 line-through">₹{item.price}</p>
-                  <p className="text-red-600 font-bold">₹{item.salePrice}</p>
+                  <h3 className="text-lg font-semibold">{dummyFlashSales[currentIndex].name}</h3>
+                  <p className="text-gray-500 line-through">₹{dummyFlashSales[currentIndex].price}</p>
+                  <p className="text-red-600 font-bold">₹{dummyFlashSales[currentIndex].salePrice}</p>
                 </div>
-              ))}
+              )}
             </div>
+
             <div className="mt-6 text-center">
               <button
                 onClick={() => {
@@ -173,6 +187,7 @@ export default function Home() {
           </div>
         </div>
       )}
+
 
       {/* Main Content */}
       <div className="relative w-full h-fit">
