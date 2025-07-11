@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaStar, FaGasPump, FaRoad, FaUsers, FaMapMarkerAlt, FaHeart, FaCamera, FaSearch, FaListUl, FaThLarge, FaMapMarkedAlt } from "react-icons/fa";
 import { GiGearStickPattern } from "react-icons/gi";
 import { carsData } from "./cars";
@@ -13,13 +13,46 @@ export default function CarListingsPage() {
     const [filteredCars, setFilteredCars] = useState(carsData);
     const [carsShow, setCarsShow] = useState(carsData.slice(0, 5));
     const [showCount, setShowCount] = useState(5);
+    const [isLoggedIn,setIsLoggedIn]=useState(false)
     const router = useRouter();
 
     const [selectedFilters, setSelectedFilters] = useState({});
+    useEffect(() => {
+        const verifyToken = async () => {
+          const token = localStorage.getItem('token');
+    
+          if (!token) {
+            console.log('not token')
+            router.push('/signin');
+            return;
+          }
+    
+          try {
+            const response = await fetch('http://localhost:5000/api/user/profile', {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            });
+            if (response.status === 200) {
+              setIsLoggedIn(true);
+            } else {
+            //   localStorage.removeItem('token');
+              router.push('/signin');
+            }
+          } catch (error) {
+            console.error("Token invalid or request failed:", error);
+            // localStorage.removeItem('token');
+            router.push('/signin');
+          }
+        };
+    
+        verifyToken();
+      }, [router]);
+      if (!isLoggedIn) return ""
 
     return (
         <div className="min-h-screen bg-gray-100 font-sans">
-            <div className="relative w-full h-20  text-white flex items-center justify-center">
+            <div className="relative w-full h-20  text-black flex items-center justify-center">
                             <Navbar/>
             </div>
 

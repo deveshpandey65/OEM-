@@ -13,10 +13,9 @@ export default function LeftContent() {
             <div className="w-full flex flex-col items-start justify-center gap-6 md:px-4">
                 {/* Heading */}
                 <h1 className="text-3xl md:text-5xl font-extrabold text-black leading-tight">
-                    Make Your Ride Easy With
-                    <span className="pl-2 relative inline-block">
-                        <span className="text-black">Dreams Rent</span>
-                        <span className="ml-2 absolute -bottom-1 left-0 w-full h-2 bg-[#ffa633] -z-10"></span>
+                        INDIA"s First Hyper Local Automobile Platform                    <span className="pl-2 relative inline-block">
+                        <span className="text-black">Coveten</span>
+                        <span className="ml-2 absolute -bottom-1 left-0 w-full h-2 bg-[#0a5ebe] -z-10"></span>
                     </span>
                 </h1>
 
@@ -28,7 +27,7 @@ export default function LeftContent() {
                 <div className="w-[90%] bg-white shadow-lg p-4  md:p-6 rounded-xl flex flex-col gap-4 md:flex-wrap lg:flex-nowrap lg:flex-row">
                     <div className="flex flex-col w-full md:w-[48%] lg:w-1/4">
                         <label className="text-sm text-gray-500 mb-1">Any type</label>
-                        <select className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffa633]">
+                        <select className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]">
                             <option>Cruiser</option>
                             <option>Scooter</option>
                             <option>Sport</option>
@@ -37,7 +36,7 @@ export default function LeftContent() {
                     </div>
                     <div className="flex flex-col w-full md:w-[48%] lg:w-1/4">
                         <label className="text-sm text-gray-500 mb-1">Model</label>
-                        <select className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffa633]">
+                        <select className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]">
                             <option>KTM 300</option>
                             <option>KTM RC 390</option>
                             <option>Yamaha R15</option>
@@ -46,7 +45,7 @@ export default function LeftContent() {
                     </div>
                     <div className="flex flex-col w-full md:w-[48%] lg:w-1/4">
                         <label className="text-sm text-gray-500 mb-1">Location</label>
-                        <select className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#ffa633]">
+                        <select className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]">
                             <option>New York</option>
                             <option>Los Angeles</option>
                             <option>Chicago</option>
@@ -54,7 +53,7 @@ export default function LeftContent() {
                         </select>
                     </div>
                     <div className="w-full md:w-auto self-end md:self-center">
-                        <button className="bg-[#ffa633] hover:bg-[#ff9a1f] text-white px-6 py-3 rounded-md flex items-center justify-center gap-2 w-full">
+                        <button className="bg-[#0a5ebe] hover:bg-[#272e41] text-white px-6 py-3 rounded-md flex items-center justify-center gap-2 w-full">
                             <i className="bx bx-search-alt text-lg" />
                             Search
                         </button>

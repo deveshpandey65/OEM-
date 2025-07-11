@@ -9,6 +9,14 @@ import { CarFeatures, Specifications } from "./Features";
 import { use } from "react";
 import Pricing from "./Pricing";
 import  { CarLocationMap, OwnerInfo, ShareIcons } from "./OwnerDetail";
+import TariffTable from "./Tarrif";
+import FAQSection from "./faq";
+import PoliciesSection from "./policies";
+import ReviewSection from "./Reviews";
+import ReviewForm from "./Reply";
+import CarCard from "./Intrested";
+import InterestedCars from "./Intrested";
+import Footer from "@/components/Footer/Footer";
 
 
 export default function CarDetailPage({ params }) {
@@ -36,16 +44,24 @@ export default function CarDetailPage({ params }) {
                     <DescriptionSection/>
                     <Specifications/>
                     <CarFeatures/>
+                    <TariffTable/>
+                    <FAQSection/>
+                    <PoliciesSection/>
+                    <ReviewSection/>
+                    <ReviewForm/>
                 </div>
-                <div>
+                <div className=" sticky  right-[10%]">
                     <Pricing/>
                     <OwnerInfo/>
                     <CarLocationMap/>
                     <ShareIcons/>
                 </div>
 
-
             </div>
+            <div className=" px-[10%]">
+                <InterestedCars />
+            </div>
+            <Footer/>
         </div>
     );
 }
