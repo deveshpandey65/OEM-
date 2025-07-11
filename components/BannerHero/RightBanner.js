@@ -24,7 +24,7 @@ export default function RightBanner() {
             />
             </motion.div>
             <motion.div
-                initial={{ x: 500, opacity: 0, scale: 0.8 }} // farther right, smaller
+                initial={{ x: 500, opacity: 0, scale: 0.8 }} 
                 animate={{ x: 0, opacity: 1, scale: 1 }}
                 transition={{ duration: 1.2, ease: 'easeOut' }}
                 className="absolute right-0 bottom-0 z-10 transform -translate-x-[150px]"
