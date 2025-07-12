@@ -117,7 +117,7 @@ export default function Home() {
       {/* Flash Sale Modal */}
       {showModal && (
         <div className=" fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="w-fit bg-white rounded-xl shadow-lg p-6 max-w-4xl w-[90%] relative">
+          <div className="w-fit bg-white rounded-xl shadow-lg p-6 max-w-4xl  relative">
             <button
               onClick={() => {
                 setShowModal(false);
@@ -142,7 +142,7 @@ export default function Home() {
                     className="w-full h-40 object-contain mb-2 rounded"
                   />
                   <p className="text-center text-sm mb-3 text-gray-600">
-                    Ends in <span className="font-semibold text-red-600">{formatTime(dummyFlashSales[currentIndex].time)}</span>
+                    Ends in <span className="font-semibold text-red-600">{formatTime(timeLeft)}</span>
                   </p>
                   <h3 className="text-lg font-semibold">{dummyFlashSales[currentIndex].name}</h3>
                   <p className="text-gray-500 line-through">₹{dummyFlashSales[currentIndex].price}</p>
