@@ -28,7 +28,7 @@ const dummyFlashSales = [
     time: 1800
   },
   {
-    id: '3',
+    id: '2',
     name: 'Ola S1 Air',
     price: 1800,
     salePrice: 749,
@@ -156,11 +156,11 @@ export default function Home() {
                 onClick={() => {
                   setShowModal(false);
                   setIsManuallyClosed(true);
-                  router.push('/flashsale');
+                  router.push(`/listing/${dummyFlashSales[currentIndex].id}`);
                 }}
                 className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition"
               >
-                View All Flash Sales
+                Get Now
               </button>
             </div>
           </div>

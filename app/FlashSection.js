@@ -5,16 +5,16 @@ import FlashDealSection from './FlashDeal'
 
 const flashDealsData = {
     past: [
-        { title: 'Yamaha R15', image: '/assets/img/bike.png', discount: '30% Off', price: '1,400', discountPrice: '1000', bikesLeft: 0, time: 0 },
-        { title: 'Royal Enfield Classic', image: '/assets/img/bike.png', discount: '25% Off', price: '2,200', discountPrice: '1800', bikesLeft: 0, time: 0 },
+        { id:4,title: 'Yamaha R15', image: '/assets/img/bike.png', discount: '30% Off', price: '1,400', discountPrice: '1000', bikesLeft: 0, time: 0 },
+        { id: 4,title: 'Royal Enfield Classic', image: '/assets/img/bike.png', discount: '25% Off', price: '2,200', discountPrice: '1800', bikesLeft: 0, time: 0 },
     ],
     current: [
-        { title: 'Honda Activa', image: '/assets/img/bike.png', discount: '40% Off', price: '900', discountPrice: '700', bikesLeft: 10, time: 1800 },
-        { title: 'TVS Apache', image: '/assets/img/bike.png', discount: '20% Off', price: '1,150', discountPrice: '1000', bikesLeft: 6, time: 3600 },
+        { id: 1,title: 'Honda Activa', image: '/assets/img/bike.png', discount: '40% Off', price: '900', discountPrice: '700', bikesLeft: 10, time: 1800 },
+        { id: 2, title: 'TVS Apache', image: '/assets/img/bike.png', discount: '20% Off', price: '1,150', discountPrice: '1000', bikesLeft: 6, time: 3600 },
     ],
     upcoming: [
-        { title: 'Suzuki Gixxer', image: '/assets/img/bike.png', discount: '35% Off', price: '1,800', discountPrice: '1400', bikesLeft: 12, time: 5400 },
-        { title: 'KTM Duke 200', image: '/assets/img/bike.png', discount: '28% Off', price: '2,500', discountPrice: '2000', bikesLeft: 8, time: 7200 },
+        { id: 4, title: 'Suzuki Gixxer', image: '/assets/img/bike.png', discount: '35% Off', price: '1,800', discountPrice: '1400', bikesLeft: 12, time: 5400 },
+        { id: 4, title: 'KTM Duke 200', image: '/assets/img/bike.png', discount: '28% Off', price: '2,500', discountPrice: '2000', bikesLeft: 8, time: 7200 },
     ],
 };
 
@@ -46,11 +46,13 @@ const FlashSaleSection = () => {
     const handleBuyNowClick = (deal) => {
         // Optional: Navigate to bike details or show modal
         console.log('Clicked deal:', deal.title);
+        router.push(`/listing/${deal.id}`);
         // Example: router.push(`/bike/${deal.title}`);
     };
     const handleNotifyMeClick = (deal) => {
         // Optional: Navigate to bike details or show modal
         console.log('Clicked Notify:', deal.title);
+
         // Example: router.push(`/bike/${deal.title}`);
     };
 

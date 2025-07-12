@@ -1,8 +1,8 @@
 export const carsData = [
     {
         id: 1,
-        name: "Kia Soul 2016",
-        brand: "KIA",
+        name: "Vida V1 Pro",
+        brand: "HERO",
         price: 80,
         location: "Belgium",
         fuel: "Petrol",
@@ -27,7 +27,7 @@ export const carsData = [
     },
     {
         id: 2,
-        name: "Toyota Camry SE",
+        name: "Ola S1 Air",
         brand: "Toyota",
         price: 120,
         location: "USA",

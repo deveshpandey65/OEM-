@@ -6,7 +6,7 @@ export default function Header({ car }) {
             <div>
                 <div className="flex items-center gap-2 mb-2 text-sm text-gray-700">
                     <span className="flex items-center gap-1 text-gray-800 font-medium">
-                        🚗 {car.type}
+                         {car.type}
                     </span>
                     <span className="bg-teal-600 text-white text-xs px-2 py-0.5 rounded">{car.year}</span>
                     <div className="flex items-center text-yellow-500">
