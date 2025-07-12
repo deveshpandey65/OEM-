@@ -24,43 +24,20 @@ const dummyFlashSales = [
     price: 2000,
     salePrice: 899,
     image: '/assets/img/bike.png',
-  },
-  {
-    id: '2',
-    name: 'Ather 450X',
-    price: 1500,
-    salePrice: 999,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerX1qQe7h62unpdkOY4o3vhtGSSVrt6vCYMX2GDzN8dmQhF7Z0JL3R-jlSgfxnqpACXU&usqp=CAU',
+    bikesLeft: 10, 
+    time: 1800
   },
   {
     id: '3',
     name: 'Ola S1 Air',
     price: 1800,
     salePrice: 749,
-    image: '/assets/img/bike.png',
-  },
-  {
-    id: '1',
-    name: 'Vida V1 Pro',
-    price: 2000,
-    salePrice: 899,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerX1qQe7h62unpdkOY4o3vhtGSSVrt6vCYMX2GDzN8dmQhF7Z0JL3R-jlSgfxnqpACXU&usqp=CAU',
-  },
-  {
-    id: '2',
-    name: 'Ather 450X',
-    price: 1500,
-    salePrice: 999,
-    image: '/assets/img/bike.png',
-  },
-  {
-    id: '3',
-    name: 'Ola S1 Air',
-    price: 1800,
-    salePrice: 749,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerX1qQe7h62unpdkOY4o3vhtGSSVrt6vCYMX2GDzN8dmQhF7Z0JL3R-jlSgfxnqpACXU&usqp=CAU',
+    image: '/assets/img/bike1.png',
+    bikesLeft: 4,
+    time: 1300
   },
 ];
+
 
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -68,6 +45,7 @@ export default function Home() {
   const [isManuallyClosed, setIsManuallyClosed] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
   const router = useRouter();
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -152,9 +130,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-center mb-1 text-orange-600">
               ⚡ Flash Sale Deals
             </h2>
-            <p className="text-center text-sm mb-3 text-gray-600">
-              Ends in <span className="font-semibold text-red-600">{formatTime(timeLeft)}</span>
-            </p>
+            
 
             {/* Slider */}
             <div className="w-full flex justify-center items-center py-2 px-1">
@@ -165,6 +141,9 @@ export default function Home() {
                     alt={dummyFlashSales[currentIndex].name}
                     className="w-full h-40 object-contain mb-2 rounded"
                   />
+                  <p className="text-center text-sm mb-3 text-gray-600">
+                    Ends in <span className="font-semibold text-red-600">{formatTime(dummyFlashSales[currentIndex].time)}</span>
+                  </p>
                   <h3 className="text-lg font-semibold">{dummyFlashSales[currentIndex].name}</h3>
                   <p className="text-gray-500 line-through">₹{dummyFlashSales[currentIndex].price}</p>
                   <p className="text-red-600 font-bold">₹{dummyFlashSales[currentIndex].salePrice}</p>

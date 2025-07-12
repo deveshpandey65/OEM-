@@ -7,39 +7,35 @@ import 'swiper/css/pagination';
 
 const testimonials = [
     {
-        name: 'Valerie L. Ellis',
+        name: 'Riya Sharma',
         rating: 5.0,
         message:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: 'https://randomuser.me/api/portraits/women/65.jpg',
-        
+            'NAVEauto made my vehicle purchase experience seamless. I booked, financed, and got it delivered without stepping out.',
+        image: 'https://randomuser.me/api/portraits/women/25.jpg',
         quoteColor: 'text-[#558080]',
     },
     {
-        name: 'Laverne Marier',
+        name: 'Arjun Mehta',
         rating: 5.0,
         message:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: 'https://randomuser.me/api/portraits/women/12.jpg',
-        
+            'Amazing service and support. The team helped me compare options and got my loan approved in just one day!',
+        image: 'https://randomuser.me/api/portraits/men/31.jpg',
         quoteColor: 'text-[#ffa633]',
     },
     {
-        name: 'Laverne Marier',
+        name: 'Pooja Iyer',
         rating: 5.0,
         message:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: 'https://randomuser.me/api/portraits/women/12.jpg',
-        
-        quoteColor: 'text-[#ffa633]',
+            'Loved how everything was digital and hassle-free. The delivery was on time and well-coordinated. Highly recommend!',
+        image: 'https://randomuser.me/api/portraits/women/45.jpg',
+        quoteColor: 'text-[#558080]',
     },
     {
-        name: 'Laverne Marier',
+        name: 'Rohit Nambiar',
         rating: 5.0,
         message:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        image: 'https://randomuser.me/api/portraits/women/12.jpg',
-       
+            'NAVEauto’s support team was super responsive. They even helped me figure out the best EV options in my city.',
+        image: 'https://randomuser.me/api/portraits/men/52.jpg',
         quoteColor: 'text-[#ffa633]',
     },
 ];
@@ -53,10 +49,10 @@ export default function TestimonialSlider() {
 
             {/* Heading */}
             <div className="text-center mb-14">
-                <h2 className="text-3xl md:text-4xl font-bold">What People say about us?</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">What People Say About Us?</h2>
                 <div className="w-14 h-1 mx-auto bg-[#ffa633] rounded-full mt-3 mb-4" />
                 <p className="text-gray-300">
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    Hear what our happy customers have to say about their journey with NAVEauto.
                 </p>
             </div>
 
@@ -98,7 +94,7 @@ export default function TestimonialSlider() {
                                 </div>
 
                                 {/* Message */}
-                                <p className="text-sm">{t.message}</p>
+                                <p className="text-sm text-black hover:text-white transition">{t.message}</p>
                             </div>
                         </SwiperSlide>
                     ))}

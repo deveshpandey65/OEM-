@@ -28,7 +28,7 @@ export default function CarDetailPage({ params }) {
 
     return (
         <div className="bg-blue-50">
-            <div className="relative w-full h-20 text-white flex items-center justify-center bg-gray-800">
+            <div className="relative w-full h-20 text-black flex items-center justify-center bg-gray-800">
                 <Navbar/>
             </div>
             <div className="relative w-full h-30 text-white flex items-center justify-center bg-gray-800">
