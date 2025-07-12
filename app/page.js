@@ -55,7 +55,7 @@ export default function Home() {
       setCurrentIndex((prevIndex) =>
         prevIndex === dummyFlashSales.length - 1 ? 0 : prevIndex + 1
       );
-    }, 2000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [showModal, dummyFlashSales.length]);
