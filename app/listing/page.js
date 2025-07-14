@@ -37,7 +37,7 @@ export default function CarListingsPage() {
               setIsLoggedIn(true);
             } else {
             //   localStorage.removeItem('token');
-              router.push('/signin');
+            //   router.push('/signin');
             }
           } catch (error) {
             console.error("Token invalid or request failed:", error);
@@ -48,7 +48,7 @@ export default function CarListingsPage() {
     
         verifyToken();
       }, [router]);
-      if (!isLoggedIn) return ""
+    //   if (!isLoggedIn) return ""
 
     return (
         <div className="min-h-screen bg-gray-100 font-sans">
