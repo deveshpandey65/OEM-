@@ -115,7 +115,7 @@ export default function CarListingsPage() {
                                     <div className="flex items-center text-gray-600 text-sm">
                                         <FaMapMarkerAlt className="mr-1" /> {car.location}
                                     </div>
-                                    <div className="text-red-600 font-bold text-lg">${car.price} <span className="text-gray-600 text-sm font-normal">/ Day</span></div>
+                                    <div className="text-red-600 font-bold text-lg">₹{car.price}</div>
                                 </div>
 
                                 <button className="mt-4 w-full bg-cyan-900 text-white py-2 rounded-xl font-semibold"

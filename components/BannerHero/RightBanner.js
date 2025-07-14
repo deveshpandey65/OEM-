@@ -16,7 +16,7 @@ export default function RightBanner() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentBike((prev) => (prev + 1) % bikeImages.length);
-        }, 2000); // every 2 seconds
+        }, 5000); // every 2 seconds
 
         return () => clearInterval(interval);
     }, []);

@@ -34,25 +34,44 @@ const indiaStatesWithCities = {
     "Uttarakhand": ["Dehradun", "Haridwar", "Nainital"],
     "West Bengal": ["Kolkata", "Howrah", "Durgapur"]
 };
+const data = {
+    Scooter: {
+        "Ola Electric": ["S1 Pro", "S1 Air", "S1X"],
+        "Ather Energy": ["450X", "450 Apex"],
+        "TVS Motor": ["iQube", "iQube ST"],
+        "Bajaj Auto": ["Chetak EV"],
+        "Hero MotoCorp (Vida)": ["Vida V1 Plus", "Vida V1 Pro"]
+    },
+    Motorcycle: {
+        "Royal Enfield": ["Classic 350", "Meteor 350"],
+        "KTM": ["RC 390", "Duke 250"],
+        "Yamaha": ["R15 V4", "MT-15"]
+    }
+};
 
 export default function LeftContent() {
+    const [selectedType, setSelectedType] = useState("");
+    const [selectedMake, setSelectedMake] = useState("");
     const [selectedState, setSelectedState] = useState("");
     const [selectedCity, setSelectedCity] = useState("");
 
-    const handleStateChange = (e) => {
-        setSelectedState(e.target.value);
-        setSelectedCity("");
+    const handleTypeChange = (e) => {
+        setSelectedType(e.target.value);
+        setSelectedMake("");
+    };
+
+    const handleMakeChange = (e) => {
+        setSelectedMake(e.target.value);
     };
 
     return (
         <motion.div
             initial={{ y: -200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative w-full max-w-6xl mx-auto px-4"
         >
             <div className="w-full flex flex-col items-start justify-center gap-6">
-                {/* Heading */}
                 <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-black leading-tight">
                     INDIA's First Hyper Local Automobile Platform
                     <span className="pl-2 relative inline-block">
@@ -66,35 +85,60 @@ export default function LeftContent() {
                 </p>
 
                 {/* Search Section */}
-                <div className="w-full bg-white shadow-lg p-4 md:p-6 rounded-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div className="w-full bg-white shadow-lg p-4 md:p-6 rounded-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {/* Type */}
                     <div className="flex flex-col">
                         <label className="text-sm text-gray-500 mb-1">Type</label>
-                        <select className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]">
-                            <option>Cruiser</option>
-                            <option>Scooter</option>
-                            <option>Sport</option>
-                            <option>Touring</option>
+                        <select
+                            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
+                            value={selectedType}
+                            onChange={handleTypeChange}
+                        >
+                            <option value="">Select Type</option>
+                            {Object.keys(data).map((type) => (
+                                <option key={type} value={type}>{type}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    {/* Make */}
+                    <div className="flex flex-col">
+                        <label className="text-sm text-gray-500 mb-1">Make</label>
+                        <select
+                            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
+                            value={selectedMake}
+                            onChange={handleMakeChange}
+                            disabled={!selectedType}
+                        >
+                            <option value="">Select Make</option>
+                            {selectedType && Object.keys(data[selectedType]).map((make) => (
+                                <option key={make} value={make}>{make}</option>
+                            ))}
                         </select>
                     </div>
 
                     {/* Model */}
                     <div className="flex flex-col">
                         <label className="text-sm text-gray-500 mb-1">Model</label>
-                        <select className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]">
-                            <option>KTM 300</option>
-                            <option>KTM RC 390</option>
-                            <option>Yamaha R15</option>
-                            <option>Royal Enfield</option>
+                        <select
+                            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
+                            disabled={!selectedMake}
+                        >
+                            <option value="">Select Model</option>
+                            {selectedType && selectedMake && data[selectedType][selectedMake].map((model) => (
+                                <option key={model} value={model}>{model}</option>
+                            ))}
                         </select>
                     </div>
+                    
+                    
 
                     {/* State */}
                     <div className="flex flex-col">
                         <label className="text-sm text-gray-500 mb-1">State</label>
                         <select
                             value={selectedState}
-                            onChange={handleStateChange}
+                            onChange={(e) => setSelectedState(e.target.value)}
                             className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
                         >
                             <option value="">Select State</option>
@@ -119,7 +163,6 @@ export default function LeftContent() {
                             ))}
                         </select>
                     </div>
-
                     {/* Button */}
                     <div className="self-end">
                         <button className="bg-[#0a5ebe] hover:bg-[#272e41] text-white px-6 py-3 rounded-md flex items-center justify-center gap-2 w-full">
@@ -127,40 +170,46 @@ export default function LeftContent() {
                             Search
                         </button>
                     </div>
+
+                    
                 </div>
 
-                {/* Description */}
                 <p className="text-sm md:text-base text-gray-600">
                     Experience the ultimate freedom of Dreamsrental – tailor adventure by choosing from Premium bikes.
                 </p>
 
-                {/* Bottom Section */}
-                <div className="flex flex-col md:flex-row items-center justify-between w-full mt-6 gap-6">
-                    <div className="flex items-center gap-4">
-                        <div className="flex -space-x-4">
-                            <img src="https://randomuser.me/api/portraits/women/1.jpg" className="w-10 h-10 rounded-full border-2 border-white" alt="user1" />
-                            <img src="https://randomuser.me/api/portraits/men/2.jpg" className="w-10 h-10 rounded-full border-2 border-white" alt="user2" />
-                            <img src="https://randomuser.me/api/portraits/women/3.jpg" className="w-10 h-10 rounded-full border-2 border-white" alt="user3" />
+                {/* Customers & Buttons Section - Responsive */}
+                <div className="sm:flex flex-col gap-4 w-full mt-6 md:flex-row md:items-center md:justify-between hidden">
+
+                    {/* Customer avatars + text */}
+                    <div className="flex items-center gap-3">
+                        <div className="flex -space-x-2">
+                            <img src="https://randomuser.me/api/portraits/women/1.jpg" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white" alt="user1" />
+                            <img src="https://randomuser.me/api/portraits/men/2.jpg" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white" alt="user2" />
+                            <img src="https://randomuser.me/api/portraits/women/3.jpg" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white" alt="user3" />
                         </div>
-                        <div>
-                            <p className="text-lg font-bold text-black">6K + Customers</p>
-                            <p className="text-sm text-gray-500">have used our renting services</p>
+                        <div className="text-sm sm:text-base">
+                            <p className="font-semibold text-black">6K+ Customers</p>
+                            <p className="text-gray-500 text-xs sm:text-sm">have used our renting services</p>
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <button className="px-5 py-2 border border-black text-black font-medium rounded-md hover:bg-gray-100 transition">
+                    {/* Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full md:w-auto">
+                        <button className="w-full sm:w-auto px-4 py-2 border border-black text-black text-sm font-medium rounded-md hover:bg-gray-100 transition">
                             Book a Test Drive
                         </button>
-                        <button className="px-5 py-2 bg-black text-white font-medium rounded-md flex items-center gap-2 hover:bg-gray-800 transition">
-                            <span className="text-white text-lg">+</span> Book an Interactive Demo
+                        <button className="w-full sm:w-auto px-4 py-2 bg-black text-white text-sm font-medium rounded-md flex items-center justify-center gap-2 hover:bg-gray-800 transition">
+                            <span className="text-lg">+</span> Interactive Demo
                         </button>
-                        <button className="px-5 py-2 bg-black text-white font-medium rounded-md flex items-center gap-2 hover:bg-gray-800 transition">
-                            <span className="text-white text-lg">+</span> Buy Your Dream Bike
+                        <button className="w-full sm:w-auto px-4 py-2 bg-black text-white text-sm font-medium rounded-md flex items-center justify-center gap-2 hover:bg-gray-800 transition">
+                            <span className="text-lg">+</span> Buy Your Dream Bike
                         </button>
                     </div>
                 </div>
+
             </div>
         </motion.div>
     );
-}
+} 
+

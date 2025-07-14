@@ -10,142 +10,73 @@ import "swiper/css/navigation";
 
 const bikes = [
     {
-        name: "Harley Davidson",
-        price: 160,
-        reviews: 138,
+        name: "Ather 450X",
+        price: 145000,
+        reviews: 412,
         rating: 4,
-        image: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/bike/bike1-slide-01.png",
-        ribbon: "Featured",
-        ribbonColor: "red-500",
-        avatar: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/profiles/avatar-04.jpg",
-        stats: {
-            brake: "Drum",
-            mileage: "35 Km/hr",
-            fuel: "Diesel",
-            tyre: "Tubeless",
-        },
-        downloads: "3.6m",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdAGSOVt11fY8nUlMw9ohgTf35uQ5jdDM4Lw&s",
+        ribbon: "Top Seller",
+        ribbonColor: "green-600",
+        avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+        downloads: "5.1m",
     },
     {
-        name: "Harley Davidson",
-        price: 160,
-        reviews: 138,
-        rating: 4,
-        image: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/bike/bike1-slide-01.png",
-        ribbon: "Featured",
-        ribbonColor: "red-500",
-        avatar: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/profiles/avatar-04.jpg",
-        stats: {
-            brake: "Drum",
-            mileage: "35 Km/hr",
-            fuel: "Diesel",
-            tyre: "Tubeless",
-        },
-        downloads: "3.6m",
+        name: "Ola S1 Pro",
+        price: 139999,
+        reviews: 520,
+        rating: 5,
+        image: "https://assets.otocapital.in/production/amethyst-ola-s1-pro-image.png",
+        ribbon: "Editor's Pick",
+        ribbonColor: "purple-600",
+        avatar: "https://randomuser.me/api/portraits/women/21.jpg",
+        downloads: "6.8m",
     },
     {
-        name: "Harley Davidson",
-        price: 160,
-        reviews: 138,
+        name: "TVS iQube",
+        price: 125000,
+        reviews: 289,
         rating: 4,
-        image: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/bike/bike1-slide-01.png",
-        ribbon: "Featured",
-        ribbonColor: "red-500",
-        avatar: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/profiles/avatar-04.jpg",
-        stats: {
-            brake: "Drum",
-            mileage: "35 Km/hr",
-            fuel: "Diesel",
-            tyre: "Tubeless",
-        },
-        downloads: "3.6m",
+        image: "https://img-cdn.evfy.in/products/iqube-PrimaryImage.webp",
+        ribbon: "Value Buy",
+        ribbonColor: "blue-600",
+        avatar: "https://randomuser.me/api/portraits/men/12.jpg",
+        downloads: "3.2m",
     },
     {
-        name: "Harley Davidson",
-        price: 160,
-        reviews: 138,
+        name: "Vida V1 Pro",
+        price: 145000,
+        reviews: 180,
         rating: 4,
-        image: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/bike/bike1-slide-01.png",
-        ribbon: "Featured",
+        image: "https://rukminim3.flixcart.com/image/850/1000/xif0q/electric-bike-scooter/c/q/x/-original-imagz8xnkeykwmpc.jpeg?q=90&crop=false",
+        ribbon: "Popular",
         ribbonColor: "red-500",
-        avatar: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/profiles/avatar-04.jpg",
-        stats: {
-            brake: "Drum",
-            mileage: "35 Km/hr",
-            fuel: "Diesel",
-            tyre: "Tubeless",
-        },
-        downloads: "3.6m",
+        avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+        downloads: "2.9m",
     },
     {
-        name: "Harley Davidson",
-        price: 160,
-        reviews: 138,
-        rating: 4,
-        image: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/bike/bike1-slide-01.png",
-        ribbon: "Featured",
-        ribbonColor: "red-500",
-        avatar: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/profiles/avatar-04.jpg",
-        stats: {
-            brake: "Drum",
-            mileage: "35 Km/hr",
-            fuel: "Diesel",
-            tyre: "Tubeless",
-        },
-        downloads: "3.6m",
+        name: "Bajaj Chetak EV",
+        price: 130000,
+        reviews: 305,
+        rating: 5,
+        image: "https://cdn.bajajauto.com/-/media/chetakv2/content-image/image-series/3502_image.webp",
+        ribbon: "Classic EV",
+        ribbonColor: "yellow-600",
+        avatar: "https://randomuser.me/api/portraits/men/27.jpg",
+        downloads: "3.7m",
     },
     {
-        name: "Harley Davidson",
-        price: 160,
-        reviews: 138,
+        name: "Ola S1 Air",
+        price: 110000,
+        reviews: 198,
         rating: 4,
-        image: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/bike/bike1-slide-01.png",
-        ribbon: "Featured",
-        ribbonColor: "red-500",
-        avatar: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/profiles/avatar-04.jpg",
-        stats: {
-            brake: "Drum",
-            mileage: "35 Km/hr",
-            fuel: "Diesel",
-            tyre: "Tubeless",
-        },
-        downloads: "3.6m",
-    }, {
-        name: "Harley Davidson",
-        price: 160,
-        reviews: 138,
-        rating: 4,
-        image: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/bike/bike1-slide-01.png",
-        ribbon: "Featured",
-        ribbonColor: "red-500",
-        avatar: "https://dreamsrent.dreamstechnologies.com/html/template/assets/img/profiles/avatar-04.jpg",
-        stats: {
-            brake: "Drum",
-            mileage: "35 Km/hr",
-            fuel: "Diesel",
-            tyre: "Tubeless",
-        },
-        downloads: "3.6m",
+        image: "https://imgd.aeplcdn.com/1280x720/n/bw/models/colors/ola-select-model-neon-1690531574765.jpg",
+        ribbon: "Budget Pick",
+        ribbonColor: "indigo-600",
+        avatar: "https://randomuser.me/api/portraits/women/39.jpg",
+        downloads: "2.4m",
     },
-    {
-        name: "KTM RC 390",
-        price: 180,
-        reviews: 150,
-        rating: 4,
-        image: "/images/bikes/ktm.png",
-        ribbon: "Top Rated",
-        ribbonColor: "orange-500",
-        avatar: "/images/users/user2.jpg",
-        stats: {
-            brake: "Disc",
-            mileage: "30 Km/L",
-            fuel: "Diesel",
-            tyre: "Tubeless",
-        },
-        downloads: "4.0m",
-    },
-    // Add other bikes similarly...
 ];
+
 
 export default function FeaturedBikes() {
     const prevRef = useRef(null);
@@ -228,7 +159,7 @@ export default function FeaturedBikes() {
                                         </span>
                                     </div>
 
-                                    <div className="flex justify-between text-sm text-gray-600 mt-3">
+                                    {/* <div className="flex justify-between text-sm text-gray-600 mt-3">
                                         <div className="flex flex-col items-center">
                                             <FaBolt />
                                             <span>{bike.stats.brake}</span>
@@ -245,11 +176,11 @@ export default function FeaturedBikes() {
                                             <GiTireIron />
                                             <span>{bike.stats.tyre}</span>
                                         </div>
-                                    </div>
+                                    </div> */}
 
                                     <div className="flex justify-between items-center mt-4">
                                         <span className="text-lg font-bold">
-                                            ${bike.price} <span className="text-sm font-normal text-gray-500">/ Day</span>
+                                            ₹{bike.price} 
                                         </span>
                                         <div className="flex gap-2">
                                             <button className="border p-2 rounded-full hover:bg-gray-100">
@@ -277,7 +208,7 @@ export default function FeaturedBikes() {
                 <div className="text-center mt-8">
                     <button
                         className="bg-black text-white hover:text-black px-6 py-2 rounded-md border-black border-2 hover:bg-white transition-colors duration-300"
-                        onClick={() => window.location.href = '/bikes'}
+                        onClick={() => window.location.href = '/listing'}
                     >
                         View All Bikes
                     </button>

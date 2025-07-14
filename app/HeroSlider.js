@@ -23,7 +23,7 @@ const HeroSlider = () => {
 
     return (
         <section
-            className="h-40 flex items-center justify-center bg-cover bg-center text-white text-center relative"
+            className="h-40 hidden  sm:flex items-center justify-center bg-cover bg-center text-white text-center relative"
             style={{ backgroundImage: "url('/assets/img/hero-banner.jpg')" }} // replace with your background
         >
             <div className="absolute inset-0 bg-black bg-opacity-60"></div>

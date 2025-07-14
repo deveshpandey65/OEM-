@@ -20,7 +20,7 @@ export default function Testimonials() {
                         height={240}
                         className="rounded-md object-cover w-full max-w-sm"
                     />
-                    <p className="text-lg font-medium">Great</p>
+                    <p className="text-lg font-medium">Excellent</p>
                     <div className="flex gap-1">
                         {Array(5)
                             .fill(0)
@@ -28,7 +28,7 @@ export default function Testimonials() {
                                 <FaStar key={i} className="text-green-500" />
                             ))}
                     </div>
-                    <p className="text-sm text-gray-600">Based on 5,801 Reviews</p>
+                    <p className="text-sm text-gray-600">Based on 8,312 Reviews</p>
                     <div className="flex items-center gap-2 text-lg font-semibold mt-2">
                         <FaStar className="text-green-500" />
                         Trustpilot
@@ -37,8 +37,8 @@ export default function Testimonials() {
 
                 {/* Right Side */}
                 <div className="bg-white rounded-xl p-8 shadow-md relative">
-                    <p className="font-semibold text-lg">Marian Hendriques</p>
-                    <p className="text-sm text-gray-500 mb-2">Dubai, Emirates</p>
+                    <p className="font-semibold text-lg">Ananya Sharma</p>
+                    <p className="text-sm text-gray-500 mb-2">Mumbai, India</p>
                     <div className="flex items-center gap-2 mb-4">
                         <div className="flex gap-1">
                             {Array(5)
@@ -52,19 +52,23 @@ export default function Testimonials() {
                         </span>
                     </div>
                     <h3 className="text-xl font-bold mb-2">
-                        “ From a Satisfied Business Traveler “
+                        “ NAVEauto Made My Commute a Breeze “
                     </h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
-                        As a frequent business traveler, I rely on Dreams Rent for all my
-                        transportation needs. Their extensive fleet of vehicles, convenient
-                        locations, and competitive pricing make them my go-to choice every
-                        time. Plus, their friendly staff always go the extra mile to ensure
-                        a seamless rental experience.
+                        I recently started using NAVEauto for my daily commute, and I’m beyond impressed!
+                        The scooters are sleek, eco-friendly, and super affordable. What I love most is
+                        how smooth the booking process is and how reliable their service has been. NAVEauto
+                        has truly redefined urban travel for me in Mumbai.
                     </p>
 
                     {/* User Avatars */}
                     <div className="flex gap-4 mt-6">
-                        {["https://dreamsrent.dreamstechnologies.com/html/template/assets/img/profiles/avatar-11.jpg", "/images/users/user2.jpg", "/images/users/user3.jpg", "/images/users/user4.jpg"].map((src, i) => (
+                        {[
+                            "https://randomuser.me/api/portraits/women/44.jpg",
+                            "https://randomuser.me/api/portraits/men/21.jpg",
+                            "https://randomuser.me/api/portraits/women/68.jpg",
+                            "https://randomuser.me/api/portraits/men/53.jpg"
+                        ].map((src, i) => (
                             <Image
                                 key={i}
                                 src={src}
