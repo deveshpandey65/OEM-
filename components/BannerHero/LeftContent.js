@@ -54,6 +54,7 @@ export default function LeftContent() {
     const [selectedMake, setSelectedMake] = useState("");
     const [selectedState, setSelectedState] = useState("");
     const [selectedCity, setSelectedCity] = useState("");
+    const [showSearchModal, setShowSearchModal] = useState(false);
 
     const handleTypeChange = (e) => {
         setSelectedType(e.target.value);
@@ -64,6 +65,93 @@ export default function LeftContent() {
         setSelectedMake(e.target.value);
     };
 
+    const SearchForm = () => (
+        <div className="w-full bg-white shadow-lg p-4 md:p-6 rounded-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Type */}
+            <div className="flex flex-col">
+                <label className="text-sm text-gray-500 mb-1">Type</label>
+                <select
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
+                    value={selectedType}
+                    onChange={handleTypeChange}
+                >
+                    <option value="">Select Type</option>
+                    {Object.keys(data).map((type) => (
+                        <option key={type} value={type}>{type}</option>
+                    ))}
+                </select>
+            </div>
+
+            {/* Make */}
+            <div className="flex flex-col">
+                <label className="text-sm text-gray-500 mb-1">Make</label>
+                <select
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
+                    value={selectedMake}
+                    onChange={handleMakeChange}
+                    disabled={!selectedType}
+                >
+                    <option value="">Select Make</option>
+                    {selectedType && Object.keys(data[selectedType]).map((make) => (
+                        <option key={make} value={make}>{make}</option>
+                    ))}
+                </select>
+            </div>
+
+            {/* Model */}
+            <div className="flex flex-col">
+                <label className="text-sm text-gray-500 mb-1">Model</label>
+                <select
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
+                    disabled={!selectedMake}
+                >
+                    <option value="">Select Model</option>
+                    {selectedType && selectedMake && data[selectedType][selectedMake].map((model) => (
+                        <option key={model} value={model}>{model}</option>
+                    ))}
+                </select>
+            </div>
+
+            {/* State */}
+            <div className="flex flex-col">
+                <label className="text-sm text-gray-500 mb-1">State</label>
+                <select
+                    value={selectedState}
+                    onChange={(e) => setSelectedState(e.target.value)}
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
+                >
+                    <option value="">Select State</option>
+                    {Object.keys(indiaStatesWithCities).map((state) => (
+                        <option key={state} value={state}>{state}</option>
+                    ))}
+                </select>
+            </div>
+
+            {/* City */}
+            <div className="flex flex-col">
+                <label className="text-sm text-gray-500 mb-1">City</label>
+                <select
+                    value={selectedCity}
+                    onChange={(e) => setSelectedCity(e.target.value)}
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
+                    disabled={!selectedState}
+                >
+                    <option value="">Select City</option>
+                    {(indiaStatesWithCities[selectedState] || []).map((city) => (
+                        <option key={city} value={city}>{city}</option>
+                    ))}
+                </select>
+            </div>
+
+            {/* Button */}
+            <div className="self-end">
+                <button className="bg-[#0a5ebe] hover:bg-[#272e41] text-white px-6 py-3 rounded-md w-full">
+                    <i className="bx bx-search-alt text-lg" /> Search
+                </button>
+            </div>
+        </div>
+    );
+
     return (
         <motion.div
             initial={{ y: -200, opacity: 0 }}
@@ -71,7 +159,7 @@ export default function LeftContent() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative w-full max-w-6xl mx-auto px-4"
         >
-            <div className="w-full flex flex-col items-start justify-center gap-6">
+            <div className="w-full flex flex-col items-start justify-center mb-4 gap-6">
                 <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-black leading-tight">
                     INDIA's First Hyper Local Automobile Platform
                     <span className="pl-2 relative inline-block">
@@ -84,105 +172,46 @@ export default function LeftContent() {
                     We prioritize customer satisfaction
                 </p>
 
-                {/* Search Section */}
-                <div className="w-full bg-white shadow-lg p-4 md:p-6 rounded-xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {/* Type */}
-                    <div className="flex flex-col">
-                        <label className="text-sm text-gray-500 mb-1">Type</label>
-                        <select
-                            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
-                            value={selectedType}
-                            onChange={handleTypeChange}
-                        >
-                            <option value="">Select Type</option>
-                            {Object.keys(data).map((type) => (
-                                <option key={type} value={type}>{type}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    {/* Make */}
-                    <div className="flex flex-col">
-                        <label className="text-sm text-gray-500 mb-1">Make</label>
-                        <select
-                            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
-                            value={selectedMake}
-                            onChange={handleMakeChange}
-                            disabled={!selectedType}
-                        >
-                            <option value="">Select Make</option>
-                            {selectedType && Object.keys(data[selectedType]).map((make) => (
-                                <option key={make} value={make}>{make}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    {/* Model */}
-                    <div className="flex flex-col">
-                        <label className="text-sm text-gray-500 mb-1">Model</label>
-                        <select
-                            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
-                            disabled={!selectedMake}
-                        >
-                            <option value="">Select Model</option>
-                            {selectedType && selectedMake && data[selectedType][selectedMake].map((model) => (
-                                <option key={model} value={model}>{model}</option>
-                            ))}
-                        </select>
-                    </div>
-                    
-                    
-
-                    {/* State */}
-                    <div className="flex flex-col">
-                        <label className="text-sm text-gray-500 mb-1">State</label>
-                        <select
-                            value={selectedState}
-                            onChange={(e) => setSelectedState(e.target.value)}
-                            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
-                        >
-                            <option value="">Select State</option>
-                            {Object.keys(indiaStatesWithCities).map((state) => (
-                                <option key={state} value={state}>{state}</option>
-                            ))}
-                        </select>
-                    </div>
-
-                    {/* City */}
-                    <div className="flex flex-col">
-                        <label className="text-sm text-gray-500 mb-1">City</label>
-                        <select
-                            value={selectedCity}
-                            onChange={(e) => setSelectedCity(e.target.value)}
-                            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0a5ebe]"
-                            disabled={!selectedState}
-                        >
-                            <option value="">Select City</option>
-                            {(indiaStatesWithCities[selectedState] || []).map((city) => (
-                                <option key={city} value={city}>{city}</option>
-                            ))}
-                        </select>
-                    </div>
-                    {/* Button */}
-                    <div className="self-end">
-                        <button className="bg-[#0a5ebe] hover:bg-[#272e41] text-white px-6 py-3 rounded-md flex items-center justify-center gap-2 w-full">
-                            <i className="bx bx-search-alt text-lg" />
-                            Search
-                        </button>
-                    </div>
-
-                    
+                {/* Desktop Search Form */}
+                <div className="hidden md:block w-full">
+                    <SearchForm />
                 </div>
+
+                {/* Mobile Floating Button */}
+                <div className="md:hidden fixed bottom-4 right-4 z-50">
+                    <button
+                        className="bg-[#0a5ebe] text-white px-5 py-3 rounded-full shadow-lg flex items-center gap-2"
+                        onClick={() => setShowSearchModal(true)}
+                    >
+                        <i className="bx bx-search-alt text-lg" /> Search
+                    </button>
+                </div>
+
+                {/* Modal for Mobile */}
+                {showSearchModal && (
+                    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center px-4">
+                        <div className="bg-white rounded-xl w-full max-w-2xl p-4">
+                            <div className="flex justify-between items-center mb-4">
+                                <h2 className="text-lg font-bold text-gray-700">Search Options</h2>
+                                <button
+                                    onClick={() => setShowSearchModal(false)}
+                                    className="text-gray-500 hover:text-black text-2xl font-bold"
+                                >
+                                    &times;
+                                </button>
+                            </div>
+                            <SearchForm />
+                        </div>
+                    </div>
+                )}
 
                 <p className="text-sm md:text-base text-gray-600">
                     Experience the ultimate freedom of Dreamsrental – tailor adventure by choosing from Premium bikes.
                 </p>
 
-                {/* Customers & Buttons Section - Responsive */}
-                <div className="sm:flex flex-col gap-4 w-full mt-6 md:flex-row md:items-center md:justify-between hidden">
-
+                {/* Additional UI elements */}
+                <div className="hidden md:flex flex-col gap-4 w-full mt-6 md:flex-row md:items-center md:justify-between ">
                     {/* Customer avatars + text */}
-                    <div className="flex items-center gap-3">
                         <div className="flex -space-x-2">
                             <img src="https://randomuser.me/api/portraits/women/1.jpg" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white" alt="user1" />
                             <img src="https://randomuser.me/api/portraits/men/2.jpg" className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white" alt="user2" />
@@ -192,7 +221,7 @@ export default function LeftContent() {
                             <p className="font-semibold text-black">6K+ Customers</p>
                             <p className="text-gray-500 text-xs sm:text-sm">have used our renting services</p>
                         </div>
-                    </div>
+                
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full md:w-auto">
@@ -207,9 +236,8 @@ export default function LeftContent() {
                         </button>
                     </div>
                 </div>
-
             </div>
         </motion.div>
     );
-} 
+}
 

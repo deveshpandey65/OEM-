@@ -180,7 +180,7 @@ export default function Home() {
       <HowItWorks />
       <PopularBikes />
       <Quality />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <Testimonials />
       <BlogSection />
       <Footer />

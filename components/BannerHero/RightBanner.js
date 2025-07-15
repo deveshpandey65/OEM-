@@ -22,25 +22,25 @@ export default function RightBanner() {
     }, []);
 
     return (
-        <div className="relative w-full max-w-[650px] aspect-[1.1] mx-auto hidden md:relative lg:block">
+        <div className="block w-full max-w-[650px] aspect-[1.1] mx-auto  md:relative lg:block">
             {/* Background image */}
             <motion.div
                 initial={{ x: 200, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="relative w-full max-w-[650px] aspect-[1.1] mx-auto hidden md:relative lg:block"
+                className="relative w-[70%] md:w-[100%] md:h-auto max-w-[650px] aspect-[1.1] mx-auto md:relative md:block"
             >
                 <Image
                     src="/assets/img/bg-bike.png"
                     alt="triangle bg"
                     height={500}
                     width={500}
-                    className="z-0 bottom-0 right-10 absolute object-cover"
+                    className="z-0 md:w-[90%] top-10 md:top-0 bottom-0 md:right-10 absolute object-cover"
                 />
             </motion.div>
 
             {/* Animated bike image with auto-change */}
-            <div className="absolute right-0 bottom-0 z-10 transform -translate-x-[150px] w-[500px] h-[500px]">
+            <div className="absolute right-0 bottom-0 z-10 transform md:-translate-x-[150px] -translate-x-[100px] w-[70%] h-[50%] md:w-[500px] md:h-[500px]">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={bikeImages[currentBike]}
@@ -59,6 +59,7 @@ export default function RightBanner() {
                     </motion.div>
                 </AnimatePresence>
             </div>
+            
         </div>
     );
 }
